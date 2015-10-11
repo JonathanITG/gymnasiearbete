@@ -3,7 +3,6 @@
 	include_once("resources/functions.php");
 
 	$database = new database;
-	$users = $database->fetch_all("user");
 ?>
 <!DOCTYPE html>
 <html5>
@@ -13,10 +12,5 @@
 		<link type="text/css" rel="stylesheet" href="css/style.css"/>
 	</head>
 	<body>
-		<?php
-			foreach($users as $user) {
-				echo $user["user_name"] . "</br>";
-			}
-		?>
 	</body>
 </html5>
