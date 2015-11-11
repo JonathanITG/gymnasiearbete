@@ -9,13 +9,20 @@
 
 			return $query->fetchAll();
 		}
-		public function fetch_from($table, $row, $selected) { //mata in tabell, vilken rad man vill söka i och vilket värde man vill söka efter
+		public function fetch_from($table, $row, $selected, $num) { //mata in tabell, vilken rad man vill söka i och vilket värde man vill söka efter. $num bestämmer vad man vill ska hända; 1 är fetch, 2 är count
 			global $pdo;
 
 			$query = $pdo->prepare("SELECT * FROM " . $table . " WHERE " . $row . " = " . $selected);
 			$query->execute();
 
-			return $query->fetch();
+			$query->fetch();
+
+			if($num = 1) {
+				return $query->fetch();
+			}
+			else if($num = 2) {
+				return $query->rowCount();
+			}
 		}
 		public function add_to($table, $addto, $addval) { //vilken tabell man vill lägga till uppgifter i och vad det är man vill lägga till. OBS, separera värden i $add med ", "
 			global $pdo;
@@ -24,8 +31,18 @@
 			$explodedval = explode(", ", $addval);
 
 			$NooObj = count($exploded); //Number of objects
-			$quMa = "?, " * $NooObj;
-			$quMa = $quMa - ",";
+			for($i = 1; $i<=$NooObj; $i++) {
+				if($i == $NooObj) {
+					$quMa = $quMa . "?";
+				}
+				else if($i == 1) {
+					$quMa = "?, ";
+				}
+				else {
+					$quMa = $quMa . "?, ";
+				}
+			}
+			echo $quMa;
 
 			$query = $pdo->prepare("INSERT INTO " . $table . " (" . $addto . ")" . " VALUES (" . $quMa . ")");
 
