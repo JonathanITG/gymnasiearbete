@@ -1,15 +1,8 @@
 <div>
 	<?php
-		session_start();
-
-		include_once("../resources/connect.php");
-		include_once("../resources/functions.php");
-
-		$database = new database;
-
-
 		class check_error {
 			function checkNewUsername($name) {
+				$database = new database;
 				//Kollar om användarnamnet är ok, 1 är ok, 0 är fel
 				if(!empty($name)) {
 					if(preg_match("/^[a-zåäöA-ZÅÄÖ0-9]+$/", $name)) {
@@ -30,9 +23,10 @@
 				}
 			}
 			function checkNewEmail($email) {
+				$database = new database;
 				//Kollar om epost-adressen är ok, 1 är ok, 0 är fel
 				if(!empty($email)) {
-					if(preg_match("", $email)) {
+					if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
 						$exist = $database->fetch_from("user", "user_email", $email, 2);
 						if($exist == 0) {
 							return 1;
@@ -69,10 +63,10 @@
 				for($i = 0; $i <= 2; $i++) {
 					if($val[$i] == 1) {
 						//Kollar vilka värden som är felaktiga
-						$check = $check . " checked" . $i;
+						$check = $check . "c" . $i;
 					}
 					else {
-						$check = $check . " err" . $i;
+						$check = $check . "e" . $i;
 					}
 				}
 				return $check;
@@ -87,7 +81,7 @@
 			$newEmail = $_POST["newEmail"];
 			$newPassword1 = $_POST["newPassword1"];
 			$newPassword2 = $_POST["newPassword2"];
-			$date = 1;
+			$date = date("Y-m-d h:i:s");
 
 			//Kolla	newUserName
 			$newUserNameErr = $error->checkNewUsername($newUserName);
@@ -114,19 +108,37 @@
 				//Jämför lösenorden för att se till att de är lika
 				if(hash_compare($hashed_pass, $compare)) {
 					$pass = $hashed_pass;
+					$database->add_to("user", "user_name, user_email, user_password, user_datetime", $newUserName . ", " . $newEmail . ", " . $pass . ", " . $date);
 				}
 				else {
 					$checkNewPassw = 0;
 				}
 			}
 			$errcheck = $error->errPass($checkNewPassw, $newEmailErr, $newUserNameErr);
+			echo $errcheck;
 
 
-			if(!preg_match("/err/",$errcheck)) {
-				$database->add_to("user", "user_name, user_email, user_password, user_datetime", $newUserName . ", " . $newEmail . ", " . $newPassword1 . ", " . $date);
+			if(!preg_match("/e+/", $errcheck)) {
+				$database->add_to("user", "user_name, user_email, user_password, user_datetime", $newUserName . ", " . $newEmail . ", " . $Pass . ", " . $date);
 			}
 			else {
-				//felhantering
+				//Läsa av error-nyckeln för att avgöra vilka fel det finns
+				for($i = 0; $i <= 2; $i++) {
+					if(preg_match("/e ". $i ."/", $errcheck)) {
+						switch ($error[$i]) {
+							case 0: 
+								//ge rätt error till rätt sak
+								break;
+
+							case 1:
+								//ge rätt error till rätt sak
+								break;
+							case 2:
+								//ge rätt error till rätt sak
+								break;
+						}
+					}
+				}
 			}
 		}
 		//log-in
@@ -138,6 +150,7 @@
 			echo $num;
 			if($num == 1) {
 				echo "hej!";
+				$_SESSION["current_user"] = $userName;
 			}
 			else {
 				echo "This username does not exist in our database!";
@@ -145,15 +158,18 @@
 		}
 		
 	?>
-	<form action="login.php" method="post" autocomplete="off">
+	<form action="index.php" method="post" autocomplete="off">
 		<input type="text" name="userName" placeholder="Username"></input>
 		<input type="password" name="password" placeholder="Password"></input>
 		<input type="submit" value="Submit"></input>
 	</form>
-	<form action="login.php" method="post" autocomplete="off">
+	<form action="index.php" method="post" autocomplete="off">
 		<input type="text" name="newUserName" placeholder="Username"></input>
+		<?php// echo $error[2];?>
 		<input type="text" name="newEmail" placeholder="Email-adress"></input>
+		<?php// echo $error[1];?>
 		<input type="password" name="newPassword1" placeholder="Password"></input>
+		<?php// echo $error[0];?>
 		<input type="password" name="newPassword2" placeholder="Password"></input>
 		<input type="submit" value="Submit"></input>
 	</form>

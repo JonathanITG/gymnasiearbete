@@ -15,8 +15,6 @@
 			$query = $pdo->prepare("SELECT * FROM " . $table . " WHERE " . $row . " = " . $selected);
 			$query->execute();
 
-			$query->fetch();
-
 			if($num = 1) {
 				return $query->fetch();
 			}

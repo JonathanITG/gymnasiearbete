@@ -1,4 +1,6 @@
 <?php
+	session_start();
+
 	include_once("resources/connect.php");
 	include_once("resources/functions.php");
 
@@ -12,5 +14,8 @@
 		<link type="text/css" rel="stylesheet" href="css/style.css"/>
 	</head>
 	<body>
+		<?php
+			include("included/login.php");
+		?>
 	</body>
 </html5>
