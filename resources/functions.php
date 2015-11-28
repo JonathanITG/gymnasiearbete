@@ -15,10 +15,10 @@
 			$query = $pdo->prepare("SELECT * FROM " . $table . " WHERE " . $row . " = " . $selected);
 			$query->execute();
 
-			if($num = 1) {
+			if($num == 1) {
 				return $query->fetch();
 			}
-			else if($num = 2) {
+			else if($num == 2) {
 				return $query->rowCount();
 			}
 		}

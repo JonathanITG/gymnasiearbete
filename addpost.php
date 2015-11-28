@@ -16,25 +16,22 @@
 		//Kollar så att användaren är inloggad
 			if(isset($_SESSION["current_user"])) {
 				//Skickar inlägget till databasen
-				if(isset($_POST["postTopic"] && isset($_POST["postContent"])) {
+				if(isset($_POST["postTopic"])) {
 					//Definierar variabler
 					$postTopic = $_POST["postTopic"];
 					$postContent = $_POST["postContent"];
 					$postUser = $_SESSION["current_user"];
 
 					//1. kolla om det finns några felaktigheter i inlägget (Tomt inlägg exempelvis)
-					if() {
+					/*if() {
 						//1.1 Be användaren rätta till felaktigheterna
 					}
-					else if() {
-						//1.1 Be användaren rätta till felaktigheterna
-					}
-					else {
+					else { */
 						//2. Skicka inlägget till databasen om inlägget är legitimt
-						$database->add_to("post", "poster_user, post_topic, post_content, post_date", $postUser . ", " . $postTopic . ", " . $postContent . ", " . /*datum*/);
-					}
+						$database->add_to("post", "poster_user, post_topic, post_content, post_date", $postUser . ", " . $postTopic . ", " . $postContent . ", " . 1);
+					//}
 				}
-		?>
+					?>
 		<div>
 			<form action="addpost.php" method="post" autocomplete="off">
 				<input type="text" name="postTopic" placeholder="Topic.."></input>
@@ -46,7 +43,7 @@
 			}
 		//Vad som ska ske ifall anvädaren inte är inloggad
 			else {
-				//skickar användaren till log-in sidan.
+				//skickar användaren till start-sidan.
 				header("location: index.php"); 
 			}
 		?>
