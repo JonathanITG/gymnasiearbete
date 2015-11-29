@@ -1,4 +1,4 @@
-Hej Jonte<?php
+<?php
 	session_start();
 
 	include_once("resources/connect.php");
@@ -11,7 +11,7 @@ Hej Jonte<?php
 	<head>
 		<title>Social hemsida</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-		<link type="text/css" rel="stylesheet" href="css/style.css"/>
+		<link type="text/css" rel="stylesheet" href="assets/css/main.css"/>
 	</head>
 	<body>
 		<?php

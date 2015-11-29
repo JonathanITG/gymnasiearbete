@@ -17,7 +17,11 @@
   },
   "homepage": "https://github.com/JonathanITG/gymnasiearbete#readme",
   "devDependencies": {
+    "autoprefixer": "^6.1.1",
+    "csswring": "^4.0.0",
     "gulp": "^3.9.0",
-    "gulp-livereload": "^3.8.1"
+    "gulp-livereload": "^3.8.1",
+    "gulp-postcss": "^6.0.1",
+    "gulp-sass": "^2.1.0"
   }
 }
