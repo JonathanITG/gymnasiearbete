@@ -1,4 +1,4 @@
-<?php
+Hej Jonte<?php
 	session_start();
 
 	include_once("resources/connect.php");

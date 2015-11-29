@@ -153,7 +153,7 @@
 				md5($userPassword) = $_POST["password"];
 
 				$num = $database->fetch_from("user", "user_name", $userName, 2);
-				
+
 				echo $num;
 				if($num == 1) {
 					echo "hej!";
@@ -162,7 +162,7 @@
 				else {
 					echo "This username does not exist in our database!";
 				}
-			}	
+			}
 	?>
 	<form action="index.php" method="post" autocomplete="off">
 		<input type="text" name="userName" placeholder="Username"></input>

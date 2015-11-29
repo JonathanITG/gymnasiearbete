@@ -1,0 +1,23 @@
+{
+  "name": "gymnasiearbete",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JonathanITG/gymnasiearbete.git"
+  },
+  "author": "Jonathan Friberg",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JonathanITG/gymnasiearbete/issues"
+  },
+  "homepage": "https://github.com/JonathanITG/gymnasiearbete#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-livereload": "^3.8.1"
+  }
+}
