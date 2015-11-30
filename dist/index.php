@@ -15,8 +15,8 @@
 	</head>
 	<body>
 		<?php
-			include("included/login.php");
+			include("included/banner.php");
 		?>
-		<a href="addpost.php">Add a post</a>
+		<a href="addpost.php">Add post</a>
 	</body>
 </html5>

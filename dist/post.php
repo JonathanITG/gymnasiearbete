@@ -5,6 +5,13 @@
 	include_once("resources/functions.php");
 
 	$database = new database;
+
+	if(isset($_GET["post_id"])) {
+		$post = $_GET["post_id"];
+	}
+	else {
+		header("location: index.php");
+	}
 ?>
 
 <!DOCTYPE html>
@@ -13,6 +20,6 @@
 		<title></title>
 	</head>
 	<body>
-		
+		<h1><?php echo  ?></h1>
 	</body>
 </html>
