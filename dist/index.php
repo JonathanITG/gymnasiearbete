@@ -17,5 +17,6 @@
 		<?php
 			include("included/login.php");
 		?>
+		<a href="addpost.php">Add a post</a>
 	</body>
 </html5>

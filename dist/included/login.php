@@ -15,17 +15,11 @@
 							if($exist == 0){
 								return 1;
 							}
-							else {
-								return 0;
-							}
-						}
-						else {
 							return 0;
 						}
-					}
-					else {
 						return 0;
 					}
+					return 0;
 				}
 				function checkNewEmail($email) {
 					$database = new database;
@@ -36,30 +30,20 @@
 							if($exist == 0) {
 								return 1;
 							}
-							else {
-								return 0;
-							}
-						}
-						else {
 							return 0;
 						}
-					}
-					else {
 						return 0;
 					}
+					return 0;
 				}
 				function checkNewPassw($pass) {
 					if(!empty($pass)) {
 						if(strlen($pass) >= 8) {
 							return 1;
 						}
-						else {
-							return 0;
-						}
-					}
-					else {
 						return 0;
 					}
+					return 0;
 				}
 				//Kollar vad funktionerna gav ut för värde och matar ut en "nyckel" för vilka värden som blev fel
 				function errPass($val1, $val2, $val3) {
@@ -150,7 +134,7 @@
 			//log-in
 			if(isset($_POST["userName"])) {
 				$userName = $_POST["userName"];
-				md5($userPassword) = $_POST["password"];
+				$userPassword = md5($_POST["password"]);
 
 				$num = $database->fetch_from("user", "user_name", $userName, 2);
 
