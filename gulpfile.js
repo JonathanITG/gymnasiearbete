@@ -20,7 +20,7 @@ gulp.task("watch", function() {
 
 gulp.task("php", function() {
     gulp.src("dist/*.php")
-    .pipe(livereload());
+        .pipe(livereload());
 });
 
 gulp.task("scss", function() {

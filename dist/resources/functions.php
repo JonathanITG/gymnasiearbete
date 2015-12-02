@@ -1,5 +1,5 @@
 <?php
-	
+
 	class database { //för att minska på att skriva samma kod om och om igen, har jag gjort en klass för allt som har med databashanteringen att göra
 		public function fetch_all($table) { //Bara tabellnamnet som behöver matas in
 			global $pdo;
@@ -12,13 +12,15 @@
 		public function fetch_from($table, $row, $selected, $num) { //mata in tabell, vilken rad man vill söka i och vilket värde man vill söka efter. $num bestämmer vad man vill ska hända; 1 är fetch, 2 är count
 			global $pdo;
 
-			$query = $pdo->prepare("SELECT * FROM " . $table . " WHERE " . $row . " = " . $selected);
+			$query = $pdo->prepare("SELECT * FROM " . $table . " WHERE " . $row . " = ?");
+			$query->bindValue(1, $selected);
 			$query->execute();
+			$count = $num;
 
-			if($num == 1) {
+			if($count == 1) {
 				return $query->fetch();
 			}
-			else if($num == 2) {
+			else if($count == 2) {
 				return $query->rowCount();
 			}
 		}

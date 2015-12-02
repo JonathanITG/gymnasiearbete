@@ -13,6 +13,7 @@
 	</head>
 	<body>
 		<?php
+			include("included/banner.php");
 		//Kollar så att användaren är inloggad
 			if(isset($_SESSION["current_user"])) {
 				//Skickar inlägget till databasen
@@ -44,7 +45,7 @@
 		//Vad som ska ske ifall anvädaren inte är inloggad
 			else {
 				//skickar användaren till start-sidan.
-				header("location: index.php"); 
+				header("location: index.php");
 			}
 		?>
 	</body>

@@ -17,6 +17,12 @@
 		<?php
 			include("included/banner.php");
 		?>
+
 		<a href="addpost.php">Add post</a>
+		<?php
+			if(isset($_SESSION["current_user"])) {
+				echo "<a href='profile.php?user=" . $_SESSION["current_user"] . "'>Profile</a>";
+			}
+		?>
 	</body>
 </html5>

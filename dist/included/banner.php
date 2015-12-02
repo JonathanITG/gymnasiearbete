@@ -10,6 +10,7 @@
             }
         }
     ?>
+    <a href="index.php"><h1>Name of this website</h1></a>
     <div style="border: 1px solid black; width: 30vw;">
         <p>debug options</p>
         <form action="index.php" method="post">
