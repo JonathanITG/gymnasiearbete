@@ -21,7 +21,7 @@
 					//Definierar variabler
 					$postTopic = $_POST["postTopic"];
 					$postContent = $_POST["postContent"];
-					$postUser = $_SESSION["current_user"];
+					$postUser = $database->fetch_from("user", "user_name", $_SESSION["current_user"], 1);
 
 					//1. kolla om det finns några felaktigheter i inlägget (Tomt inlägg exempelvis)
 					/*if() {
@@ -29,7 +29,7 @@
 					}
 					else { */
 						//2. Skicka inlägget till databasen om inlägget är legitimt
-						$database->add_to("post", "poster_user, post_topic, post_content, post_date", $postUser . ", " . $postTopic . ", " . $postContent . ", " . 1);
+						$database->add_to("post", "poster_user, post_topic, post_content, post_date", $postUser["user_id"] . ", " . $postTopic . ", " . $postContent . ", " . 1);
 					//}
 				}
 					?>
