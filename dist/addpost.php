@@ -13,12 +13,14 @@
 	</head>
 	<body>
 		<?php
-			include("included/banner.php");
+
 		//Kollar så att användaren är inloggad
 			if(isset($_SESSION["current_user"])) {
 				//Skickar inlägget till databasen
 				if(isset($_POST["postTopic"])) {
 					//Definierar variabler
+					echo $_POST["postContent"];
+
 					$postTopic = $_POST["postTopic"];
 					$postContent = $_POST["postContent"];
 					$postUser = $database->fetch_from("user", "user_name", $_SESSION["current_user"], 1);
@@ -32,12 +34,14 @@
 						$database->add_to("post", "poster_user, post_topic, post_content, post_date", $postUser["user_id"] . ", " . $postTopic . ", " . $postContent . ", " . 1);
 					//}
 				}
+
+			include("included/banner.php");
 					?>
 		<div>
 			<form action="addpost.php" method="post" autocomplete="off">
 				<input type="text" name="postTopic" placeholder="Topic.."></input>
 				<textarea name="postContent" rows="15" cols="100" placeholder="Content.."></textarea>
-				<input type="submit" value="postSubmit"></input>
+				<input type="submit" value="upload"></input>
 			</form>
 		</div>
 		<?php

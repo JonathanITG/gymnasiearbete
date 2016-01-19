@@ -52,5 +52,14 @@
 
 			$query->execute();
 		}
+		public function fetch_all_where($table, $row, $value) {
+			global $pdo;
+
+			$query = $pdo->prepare("SELECT * FROM $table WHERE $row = ?");
+			$query->bindValue(1, $value);
+			$query->execute();
+
+			return $query->fetchAll();
+		}
 	}
 ?>

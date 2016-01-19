@@ -148,12 +148,12 @@
 				}
 			}
 	?>
-	<form action="index.php" method="post" autocomplete="off">
+	<form method="post" autocomplete="off">
 		<input type="text" name="userName" placeholder="Username"></input>
 		<input type="password" name="password" placeholder="Password"></input>
 		<input type="submit" value="Submit"></input>
 	</form>
-	<form action="index.php" method="post" autocomplete="off">
+	<form method="post" autocomplete="off">
 		<input type="text" name="newUserName" placeholder="Username"></input>
 		<?php echo $errortype[2];?>
 		<input type="text" name="newEmail" placeholder="Email-adress"></input>

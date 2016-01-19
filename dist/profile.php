@@ -6,10 +6,12 @@
     include_once("resources/functions.php");
 
     $database = new database;
+
+    $username = $_GET["user"];
 ?>
 <html5>
     <head>
-        <title></title>
+        <title><?php echo $username; ?></title>
     </head>
     <body>
         <?php
@@ -18,7 +20,6 @@
             if(!isset($_GET["user"])) {
                 header("location: index.php");
             }
-            $username = $_GET["user"];
             //Vad som ska hända om användaren inte finns i databasen
             $userexist = $database->fetch_from("user", "user_name", $username, 2);
             if($userexist == 0) {
