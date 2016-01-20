@@ -12,6 +12,8 @@
 <html5>
     <head>
         <title><?php echo $username; ?></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <link type="text/css" rel="stylesheet" href="assets/css/main.css"/>
     </head>
     <body>
         <?php
@@ -26,10 +28,12 @@
                   header("location: index.php");
             }
         ?>
-        <h2><?php echo $_GET["user"]; ?></h2>
-        <?php
-            $profile = $database->fetch_from("user", "user_name", $username, 1);
-        ?>
-        <p>Registered: <?php echo $profile["user_datetime"]; ?></p>
+        <div class="contentspace">
+            <h2><?php echo $_GET["user"]; ?></h2>
+            <?php
+                $profile = $database->fetch_from("user", "user_name", $username, 1);
+            ?>
+            <p>Registered: <?php echo $profile["user_datetime"]; ?></p>
+        </div>
     </body>
 </html5>

@@ -10,6 +10,8 @@
 <html>
 	<head>
 		<title>Add post</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<link type="text/css" rel="stylesheet" href="assets/css/main.css"/>
 	</head>
 	<body>
 		<?php
@@ -37,7 +39,7 @@
 
 			include("included/banner.php");
 					?>
-		<div>
+		<div class="contentspace">
 			<form action="addpost.php" method="post" autocomplete="off">
 				<input type="text" name="postTopic" placeholder="Topic.."></input>
 				<textarea name="postContent" rows="15" cols="100" placeholder="Content.."></textarea>

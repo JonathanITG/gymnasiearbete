@@ -148,7 +148,7 @@
 				}
 			}
 	?>
-	<form method="post" autocomplete="off">
+	<!--<form method="post" autocomplete="off">
 		<input type="text" name="userName" placeholder="Username"></input>
 		<input type="password" name="password" placeholder="Password"></input>
 		<input type="submit" value="Submit"></input>
@@ -162,7 +162,7 @@
 		<?php echo $errortype[0];?>
 		<input type="password" name="newPassword2" placeholder="Password"></input>
 		<input type="submit" value="Submit"></input>
-	</form>
+	</form>-->
 	<div>
 		<button>Sign up</button> <!--Ska göra så att "logga in"-formuläret byts ut mot "Skapa konto"-fomuläret-->
 		<button>Sign in</button> <!--Ska göra så att "skapa konto"-formuläret byts ut mot "logga in"-fomuläret-->

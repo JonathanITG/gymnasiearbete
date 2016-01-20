@@ -1,6 +1,75 @@
 @import "colors";
 body {
     color: $maincolor;
-    background: linear-gradient(#550033, #ffaa00);
-    font-size: 2em;
+
 }
+
+.tag a{
+    font-size: 0.6em;
+    color: #0000ff;
+    text-decoration: none;
+}
+
+#banner {
+    position: fixed;
+    top: 0;
+    border: $border;
+    width: 100vw;
+    height: 3em;
+    margin-left: -1%;
+    margin-top: -1%;
+    padding-top: 1%;
+
+    background-color: #ffffff;
+}
+
+.bannercont {
+    height: 100%;
+}
+
+#header h1 {
+    font-size: 22px;
+}
+
+#header {
+    float: left;
+    height: 100%;
+    width: 15%;
+    margin-left: 1%;
+}
+
+#login {
+    float: left;
+    height: 100%;
+    width: 10%;
+    margin-left: 53%;
+}
+
+#searchbar {
+    float: left;
+    height: 100%;
+    width: 15%;
+}
+#searchbar form {
+    width: 1em;
+}
+
+.contentspace {
+    width: 75vw;
+    border-right: $border;
+    border-left: $border;
+
+    margin-left:10vw;
+    margin-right:10vw;
+    margin-top: 20vh;
+}
+
+#post{
+    color: #000000;
+    text-decoration: none;
+}
+
+#postlist li{
+    font-size: 2.5em;
+}
+
