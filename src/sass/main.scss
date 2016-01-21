@@ -1,48 +1,41 @@
 @import "colors";
-body {
-    color: $maincolor;
-
-}
-
-.tag a{
-    font-size: 0.6em;
-    color: #0000ff;
-    text-decoration: none;
-}
 
 #banner {
     position: fixed;
     top: 0;
-    border: $border;
+    //border: $border;
     width: 100vw;
-    height: 3em;
-    margin-left: -1%;
-    margin-top: -1%;
-    padding-top: 1%;
+    height: 4em;
 
     background-color: #ffffff;
+
 }
 
 .bannercont {
     height: 100%;
+    //border: $border;
+    padding-right: 2%;
+    padding-left: 2%
 }
 
-#header h1 {
-    font-size: 22px;
+#header a {
+    font-size: 3.5em;
+    text-decoration: none;
+    font-family: Impact;
 }
 
 #header {
     float: left;
     height: 100%;
-    width: 15%;
-    margin-left: 1%;
+    width: 20%;
+    //border: $border;
 }
 
 #login {
     float: left;
     height: 100%;
     width: 10%;
-    margin-left: 53%;
+    margin-left: 42%;
 }
 
 #searchbar {
@@ -51,25 +44,97 @@ body {
     width: 15%;
 }
 #searchbar form {
-    width: 1em;
+    width: 50%;
+    float: left;
+}
+
+#searchbar input {
+    margin-bottom: 0.5em;
+    font-size: 0.8em;
+}
+
+#searchinput {
+    width: 15vw;
+}
+
+#searchsubmit {
+    width: 4.8em;
+}
+
+#loginbutton {
+    margin-top: 0.5em;
+}
+#loginbutton button {
+    font-size: 0.8em;
+    margin-bottom: 0.5em;
+    width: 5.6em;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+#catlist {
+    border: $border;
+    width: 50%;
+    float: right;
+}
+
+.infolist {
+    border: $border;
+    float: right;
+    width: 12vw;
+
+    padding-left: .20vw;
 }
 
 .contentspace {
     width: 75vw;
-    border-right: $border;
-    border-left: $border;
+
+    border-right: $contentspaceborder;
+    border-left: $contentspaceborder;
 
     margin-left:10vw;
     margin-right:10vw;
-    margin-top: 20vh;
+    margin-top: 25vh;
+
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-#post{
+#post {
     color: #000000;
+    font-size: 2em;
+    float: left;
+    max-width: 100%;
     text-decoration: none;
+    border: $border;
 }
 
-#postlist li{
-    font-size: 2.5em;
+#post:hover{
+    color: #AFAFAF;
+}
+
+#postinfo {
+    float: right;
+    border: $border;
+    height: 2em;
+    width: 50%;
+}
+
+.postbox {
+    width: 100%;
+    height: 2em;
+    border: $border;
+    margin-bottom: 1em;
+    margin-top: 2vh;
+}
+
+.tag {
+    float: right;
+    border: $border;
+    font-size: 1em;
+    text-decoration: none;
+    color: #FF0000;
+    width: 12vw;
+    padding-left: .20vw;
+    margin-top: 0.5em;
 }
 

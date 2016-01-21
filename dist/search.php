@@ -14,21 +14,24 @@
     }
 ?>
 <!DOCTYPE html>
-<html>
+<html5>
 <head>
 	<title>Search results</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link type="text/css" rel="stylesheet" href="assets/css/main.css"/>
+    <link type="text/css" rel="stylesheet" href="assets/css/reset.css"/>
 </head>
 <body>
     <?php
         include("included/banner.php");
     ?>
-    <h1>Search results</h1>
-    <div>
-        <?php
+    <div class="contentspace">
+        <h1>Search results</h1>
+        <div>
+            <?php
 
-        ?>
+            ?>
+        </div>
     </div>
 </body>
-</html>
+</html5>

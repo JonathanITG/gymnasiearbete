@@ -19,11 +19,12 @@
 ?>
 
 <!DOCTYPE html>
-<html>
+<html5>
 	<head>
 		<title></title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 		<link type="text/css" rel="stylesheet" href="assets/css/main.css"/>
+		<link type="text/css" rel="stylesheet" href="assets/css/reset.css"/>
 	</head>
 	<body>
 		<?php include("included/banner.php") ?>
@@ -42,4 +43,4 @@
 			<?php include("included/comment.php"); ?>
 		</div>
 	</body>
-</html>
+</html5>

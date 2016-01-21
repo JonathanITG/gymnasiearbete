@@ -7,11 +7,12 @@
 	$database = new database;
 ?>
 <!DOCTYPE html>
-<html>
+<html5>
 	<head>
 		<title>Add post</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 		<link type="text/css" rel="stylesheet" href="assets/css/main.css"/>
+		<link type="text/css" rel="stylesheet" href="assets/css/reset.css"/>
 	</head>
 	<body>
 		<?php
@@ -55,4 +56,4 @@
 			}
 		?>
 	</body>
-</html>
+</html5>
