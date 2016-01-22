@@ -1,5 +1,10 @@
 @import "colors";
 
+.contentspace h2{
+    font-size: 2em;
+    margin-bottom: .5em;
+}
+
 #banner {
     position: fixed;
     top: 0;
@@ -8,7 +13,7 @@
     height: 4em;
 
     background-color: #ffffff;
-
+    box-shadow: 0px 1px 15px #CFCFCF;
 }
 
 .bannercont {
@@ -87,13 +92,13 @@
 }
 
 .contentspace {
-    width: 75vw;
+    width: 85vw;
 
-    border-right: $contentspaceborder;
-    border-left: $contentspaceborder;
+   /* border-right: $contentspaceborder;
+    border-left: $contentspaceborder;*/
 
-    margin-left:10vw;
-    margin-right:10vw;
+    margin-left:7.5vw;
+    margin-right:7.5vw;
     margin-top: 25vh;
 
     font-family: Arial, Helvetica, sans-serif;
@@ -101,9 +106,9 @@
 
 #post {
     color: #000000;
-    font-size: 2em;
+    font-size: 1.5em;
     float: left;
-    max-width: 100%;
+    width: 50%;
     text-decoration: none;
     border: $border;
 }
@@ -115,16 +120,24 @@
 #postinfo {
     float: right;
     border: $border;
-    height: 2em;
+    height: 1.5em;
     width: 50%;
 }
 
 .postbox {
     width: 100%;
-    height: 2em;
+    height: 1.5em;
     border: $border;
     margin-bottom: 1em;
-    margin-top: 2vh;
+    margin-top: .5em;
+}
+
+.even {
+    background-color: #F7F7F7;
+}
+
+.odd {
+    background-color: #F1F1F1;
 }
 
 .tag {
@@ -135,6 +148,27 @@
     color: #FF0000;
     width: 12vw;
     padding-left: .20vw;
-    margin-top: 0.5em;
+    margin-top: 0.25em;
 }
 
+#postcont {
+    width: 100%
+}
+
+#postcont p{
+    font-size: 1em;
+    line-height: 1.5em;
+}
+
+#comment {
+    margin-top: 2em;
+    border: $border;
+}
+
+#commentpost {
+
+}
+
+#commentpost h3 {
+    font-size: 1.25em;
+}

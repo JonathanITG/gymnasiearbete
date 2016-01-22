@@ -1,4 +1,4 @@
-<div>
+<div id="comment">
     <div><!--Add comment-->
         <?php
             if(isset($_SESSION["current_user"])) {
@@ -34,10 +34,19 @@
         <div>
             <?php
                 $comments = $database->fetch_all_where("comment", "post_id", $post);
+                $i = 0;
 
                 foreach($comments as $commentCont) {
+                    $i = $i + 1;
+                    if($i%2) {
+                        $class = "class='even'";
+                    }
+                    else {
+                        $class = "class='odd'";
+                    }
+
                     $poster = $database->fetch_from("user", "user_id", $commentCont["comment_user"], 1);
-                    echo "<div>
+                    echo "<div id='commentpost' $class>
                     <h3>" . $poster["user_name"] . "</h3>
                     <p>" . $commentCont["comment_content"] . "</p>
                     </div>";
