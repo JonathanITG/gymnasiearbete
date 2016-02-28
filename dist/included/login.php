@@ -1,7 +1,8 @@
 <div>
 	<?php
 		if(isset($_SESSION["current_user"])) {
-			echo "<p>You're already logged in</p>";
+
+			echo "<form action='logout.php'><input id='logoutbutton' type='submit' value='Log out'></input></form>";
 		}
 		else {
 			class check_error {
@@ -10,7 +11,6 @@
 					//Kollar om användarnamnet är ok, 1 är ok, 0 är fel
 					if(!empty($name)) {
 						if(preg_match("/^[a-zåäö0-9]+$/i", $name)) {
-							echo "hej";
 							$exist = $database->fetch_from("user", "user_name", $name, 2);
 							if($exist == 0){
 								return 1;
@@ -84,6 +84,7 @@
 
 				if($checkNewPassw == 1) {
 					//Krypterar lösenorden med hmac_md5
+					//Ändra hash-metoden till crypt() (Är säkrare)
 					$hashed_pass = md5($newPassword1); //Note to self: lägg in salt
 
 					//Jämför lösenorden för att se till att de är lika
@@ -96,7 +97,6 @@
 					}
 				}
 				$errcheck = $error->errPass($checkNewPassw, $newEmailErr, $newUserNameErr);
-				echo $errcheck;
 
 
 				if(!preg_match("/e+/", $errcheck)) {
@@ -140,32 +140,48 @@
 
 				echo $num;
 				if($num == 1) {
-					echo "hej!";
 					$_SESSION["current_user"] = $userName;
+					header('Location: '.$_SERVER['REQUEST_URI']);
 				}
 				else {
 					echo "This username does not exist in our database!";
 				}
 			}
 	?>
-	<!--<form method="post" autocomplete="off">
-		<input type="text" name="userName" placeholder="Username"></input>
-		<input type="password" name="password" placeholder="Password"></input>
-		<input type="submit" value="Submit"></input>
-	</form>
-	<form method="post" autocomplete="off">
-		<input type="text" name="newUserName" placeholder="Username"></input>
-		<?php echo $errortype[2];?>
-		<input type="text" name="newEmail" placeholder="Email-adress"></input>
-		<?php echo $errortype[1];?>
-		<input type="password" name="newPassword1" placeholder="Password"></input>
-		<?php echo $errortype[0];?>
-		<input type="password" name="newPassword2" placeholder="Password"></input>
-		<input type="submit" value="Submit"></input>
-	</form>-->
 	<div id="loginbutton">
-		<button>Sign up</button> <!--Ska göra så att "logga in"-formuläret byts ut mot "Skapa konto"-fomuläret-->
-		<button>Sign in</button> <!--Ska göra så att "skapa konto"-formuläret byts ut mot "logga in"-fomuläret-->
+		<button id="signup">Sign up</button>
+		<button id="signin">Sign in</button>
+	</div>
+	<script>
+	    $(document).ready(function(){
+	    	$("#signup").click(function() {
+	    		$("#loginmenu").hide();
+	    		$("#regmenu").slideToggle("medium");
+	    	});
+	    	$("#signin").click(function() {
+	    		$("#regmenu").hide();
+	    		$("#loginmenu").slideToggle("medium");
+	    	});
+	    });
+	</script>
+	<div class="popmenu" id="loginmenu">
+		<form method="post" autocomplete="off">
+			<input type="text" name="userName" placeholder="Username"></input>
+			<input type="password" name="password" placeholder="Password"></input>
+			<input type="submit" value="Submit"></input>
+		</form>
+	</div>
+	<div class="popmenu" id="regmenu">
+		<form method="post" autocomplete="off">
+			<input type="text" name="newUserName" placeholder="Username"></input>
+			<?php echo $errortype[2];?>
+			<input type="text" name="newEmail" placeholder="Email-adress"></input>
+			<?php echo $errortype[1];?>
+			<input type="password" name="newPassword1" placeholder="Password"></input>
+			<?php echo $errortype[0];?>
+			<input type="password" name="newPassword2" placeholder="Password"></input>
+			<input type="submit" value="Submit"></input>
+		</form>
 	</div>
 	<?php
 		}

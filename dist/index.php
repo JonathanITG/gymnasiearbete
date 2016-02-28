@@ -13,6 +13,9 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 		<link type="text/css" rel="stylesheet" href="assets/css/main.css"/>
 		<link type="text/css" rel="stylesheet" href="assets/css/reset.css"/>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    	<script src="jquery.bpopup.min.js"></script>
+    	<!--<meta name="viewport" content="width=device-width">-->
 	</head>
 	<body>
 		<?php
@@ -33,37 +36,11 @@
 			</div>
 		<?php
 			if(isset($_SESSION["current_user"])) {
-				echo "<a href='profile.php?user=" . $_SESSION["current_user"] . "'>Profile</a>";
+				echo "<a href='profile.php?user=" . $_SESSION["current_user"] . "'>" . $_SESSION["current_user"] . "</a>";
 			}
+			$set = 1;
+			include("included/postlist.php");
 		?>
-			<?php
-				$posts = $database->fetch_all("post");
-
-				$i = 0;
-				foreach($posts as $post) {
-					$post = $database->fetch_from("post", "post_id", $post["post_id"], 1);
-					$poster = $database->fetch_from("user", "user_id", $post["poster_user"], 1);
-					$i = $i + 1;
-					if($i%2) {
-						$class = "class='even'";
-					}
-					else {
-						$class = "class='odd'";
-					}
-				?>
-					<!--Note to self: make it easier to differentiate the posts-->
-					<div class="postbox">
-						<a id="post" <?php echo $class; ?> href="post.php?postid=<?php echo $post["post_id"]; ?>"><?php echo $post["post_topic"] ?>
-						</a>
-						<div id="postinfo" <?php echo $class; ?>>
-							<a class="tag" id="timestamp">01/01-16</a>
-							<a class="tag" id="commenttag">142</a>
-							<a class="tag" href="profile.php?user=<?php echo $poster["user_name"]; ?>"><?php echo $poster["user_name"]; ?></a>
-						</div>
-					</div>
-				<?php
-				}
-			?>
 		</div>
 	</body>
 </html5>

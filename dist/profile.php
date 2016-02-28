@@ -15,6 +15,9 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <link type="text/css" rel="stylesheet" href="assets/css/main.css"/>
         <link type="text/css" rel="stylesheet" href="assets/css/reset.css"/>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script src="jquery.bpopup.min.js"></script>
+        <!--<meta name="viewport" content="width=device-width">-->
     </head>
     <body>
         <?php
@@ -35,6 +38,20 @@
                 $profile = $database->fetch_from("user", "user_name", $username, 1);
             ?>
             <p>Registered: <?php echo $profile["user_datetime"]; ?></p>
+            <!--Lista med inlägg från användaren-->
+            <div>
+                <h1>Activity<h1>
+                <div class="">
+                    <h4>Posts</h4>
+                    <?php
+                        $set = 2;
+                        include("included/postlist.php");
+                    ?>
+                </div>
+                <div>
+                    <h4>Comments</h4>
+                </div>
+            </div>
         </div>
     </body>
 </html5>

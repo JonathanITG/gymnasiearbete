@@ -6,6 +6,8 @@
 
 	$database = new database;
 
+	htmlspecialchars($_GET['postid']);
+
 	if(isset($_GET["postid"])) {
 		$post = $_GET["postid"];
 		$contentexist = $database->fetch_from("post", "post_id", $post, 2);
@@ -25,6 +27,9 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 		<link type="text/css" rel="stylesheet" href="assets/css/main.css"/>
 		<link type="text/css" rel="stylesheet" href="assets/css/reset.css"/>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    	<script src="jquery.bpopup.min.js"></script>
+    	<!--<meta name="viewport" content="width=device-width">-->
 	</head>
 	<body>
 		<?php include("included/banner.php") ?>
