@@ -14,7 +14,6 @@
 		<link type="text/css" rel="stylesheet" href="assets/css/main.css"/>
 		<link type="text/css" rel="stylesheet" href="assets/css/reset.css"/>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    	<script src="jquery.bpopup.min.js"></script>
     	<!--<meta name="viewport" content="width=device-width">-->
 	</head>
 	<body>
@@ -35,9 +34,6 @@
 				</div>
 			</div>
 		<?php
-			if(isset($_SESSION["current_user"])) {
-				echo "<a href='profile.php?user=" . $_SESSION["current_user"] . "'>" . $_SESSION["current_user"] . "</a>";
-			}
 			$set = 1;
 			include("included/postlist.php");
 		?>

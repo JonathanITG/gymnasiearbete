@@ -1,7 +1,7 @@
 <div>
 	<?php
 		if(isset($_SESSION["current_user"])) {
-
+			echo "<p>user: </p><a href='profile.php?user=" . $_SESSION["current_user"] . "'>" . $_SESSION["current_user"] . "</a>";
 			echo "<form action='logout.php'><input id='logoutbutton' type='submit' value='Log out'></input></form>";
 		}
 		else {
@@ -90,7 +90,7 @@
 					//Jämför lösenorden för att se till att de är lika
 					if($newPassword1 === $newPassword2) {
 						$pass = md5($newPassword1);
-						$database->add_to("user", "user_name, user_email, user_password, user_datetime", $newUserName . ", " . $newEmail . ", " . $pass . ", " . $date);
+						$database->add_to("user", "user_name, user_email, user_password, user_datetime", $newUserName . "<> " . $newEmail . "<> " . $pass . "<> " . $date);
 					}
 					else {
 						$checkNewPassw = 0;
@@ -100,7 +100,7 @@
 
 
 				if(!preg_match("/e+/", $errcheck)) {
-					$database->add_to("user", "user_name, user_email, user_password, user_datetime", $newUserName . ", " . $newEmail . ", " . $pass . ", " . $date);
+					$database->add_to("user", "user_name, user_email, user_password, user_datetime", $newUserName . "<> " . $newEmail . "<> " . $pass . "<> " . $date);
 				}
 				else {
 					//Läsa av error-nyckeln för att avgöra vilka fel det finns

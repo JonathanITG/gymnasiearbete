@@ -28,7 +28,8 @@
 			global $pdo;
 
 			$exploded = explode(", ", $addto);
-			$explodedval = explode(", ", $addval);
+			//delimiter changed to "<> " due to problem not being able to type commas
+			$explodedval = explode("<> ", $addval);
 
 			$NooObj = count($exploded); //Number of objects
 			for($i = 1; $i<=$NooObj; $i++) {

@@ -40,7 +40,7 @@
 					}
 					else {
 						//2. Skicka inlägget till databasen om inlägget är legitimt
-						$database->add_to("post", "poster_user, post_topic, post_content, post_date", $postUser["user_id"] . ", " . $postTopic . ", " . $postContent . ", " . date("Y-m-d"));
+						$database->add_to("post", "poster_user, post_topic, post_content, post_date", $postUser["user_id"] . "<> " . $postTopic . "<> " . $postContent . "<> " . date("Y-m-d"));
 						header("Refresh:0; url=index.php");
 					}
 				}

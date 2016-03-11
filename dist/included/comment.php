@@ -48,7 +48,7 @@
                     $date = date("Y-m-d h:i:s");
 
                     if(!empty($comment)) {
-                        $database->add_to("comment", "post_id, comment_user, comment_content, comment_date", $post . ", " . $userid . ", " . $comment . ", " . $date);
+                        $database->add_to("comment", "post_id, comment_user, comment_content, comment_date", $post . "<> " . $userid . "<> " . $comment . "<> " . $date);
                         header("Location: post.php?postid=" . $post . "#addComment");
                     }
                     else {
